@@ -14,7 +14,6 @@ const ProductDetail = () => {
         }
       );
       const data = await res.json();
-      console.log(data);
       setProduct(data);
     };
     fetchProduct(itemID);

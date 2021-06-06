@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Cart = ({ cart, totalPrice, removeItem, decreaseCount }) => {
-  // console.log('cartjs', cart);
-
   return (
     <div>
       <ul className="cart-ul">

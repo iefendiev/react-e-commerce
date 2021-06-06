@@ -12,7 +12,6 @@ const Products = ({ addCart }) => {
     );
     const data = await res.json();
     setProducts(data);
-    // console.log(data);
   };
 
   useEffect(() => {

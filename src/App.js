@@ -47,13 +47,10 @@ function App() {
 
     foundItem.count -= 1;
     setCart([...newCart]);
-    console.log('cart.', cart);
     setTotalPrice(Number(totalPrice) - Number(foundItem.price));
     if (foundItem.count === 0) {
       removeItem(item);
     }
-
-    console.log('decreased item1', item);
   };
 
   return (
