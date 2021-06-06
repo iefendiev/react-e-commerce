@@ -33,10 +33,9 @@ function App() {
   const removeItem = (removedItem) => {
     const renewedCart = cart.filter((item) => item !== removedItem);
     setCart(renewedCart);
-    const newPrice = Number(totalPrice) - Number(removedItem.price);
-    if (newPrice > 0) {
-      setTotalPrice(newPrice);
-    }
+    const factor = removedItem.count;
+    const newPrice = Number(totalPrice) - factor * Number(removedItem.price);
+    setTotalPrice(newPrice);
   };
 
   const decreaseCount = (item) => {
