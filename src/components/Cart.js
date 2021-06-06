@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Cart = ({ cart, totalPrice, removeItem, decreaseCount }) => {
+const Cart = ({
+  cart,
+  totalPrice,
+  removeItem,
+  decreaseCount,
+  increaseCount,
+}) => {
   return (
     <div>
       <ul className="cart-ul">
@@ -14,9 +20,15 @@ const Cart = ({ cart, totalPrice, removeItem, decreaseCount }) => {
             <div className="cart-button-groups">
               <button
                 onClick={() => decreaseCount(cartItem)}
-                className="subtract-item-button"
+                className="subtract-count-button"
               >
                 -
+              </button>
+              <button
+                onClick={() => increaseCount(cartItem)}
+                className="add-count-button"
+              >
+                +
               </button>
               <button
                 onClick={() => removeItem(cartItem)}

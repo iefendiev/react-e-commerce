@@ -165,7 +165,8 @@ li {
 }
 
 .remove-item-button,
-.subtract-item-button {
+.subtract-count-button,
+.add-count-button {
   padding: 10px 15px;
   cursor: pointer;
   color: white;
@@ -176,8 +177,10 @@ li {
 .remove-item-button {
   background-color: rgb(253, 98, 98);
 }
-
-.subtract-item-button {
+.add-count-button {
+  background-color: rgb(130, 185, 75);
+}
+.subtract-count-button {
   background-color: rgb(185, 189, 181);
 }
 

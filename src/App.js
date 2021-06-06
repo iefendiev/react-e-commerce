@@ -26,6 +26,7 @@ function App() {
 
     calculateTotal();
   };
+
   const calculateTotal = () => {
     const cloneCart = [...cart];
     let priceTotal = cloneCart.map((item) => item.price * item.count);
@@ -53,7 +54,13 @@ function App() {
     }
     calculateTotal();
   };
+  const increaseCount = (item) => {
+    const newCart = [...cart];
+    item.count += 1;
+    setCart(...[newCart]);
 
+    calculateTotal();
+  };
   return (
     <Router>
       <Switch>
@@ -78,6 +85,7 @@ function App() {
                 totalPrice={totalPrice}
                 removeItem={removeItem}
                 decreaseCount={decreaseCount}
+                increaseCount={increaseCount}
               />
             </div>
           )}
