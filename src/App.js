@@ -32,7 +32,6 @@ function App() {
     priceTotal = priceTotal.reduce(function (acc, val) {
       return acc + val;
     }, 0);
-    console.log(priceTotal);
     setTotalPrice(priceTotal);
   };
 
@@ -48,23 +47,11 @@ function App() {
     const newCart = [...cart];
     item.count -= 1;
     setCart(...[newCart]);
-    console.log(item);
-    console.log(newCart);
+
     if (item.count === 0) {
       removeItem(item);
     }
     calculateTotal();
-    // const foundItemIndex = newCart.findIndex(
-    //   (value) => value.name === item.name
-    // );
-    // const foundItem = newCart[foundItemIndex];
-
-    // foundItem.count -= 1;
-    // setCart([...newCart]);
-    // setTotalPrice(Number(totalPrice) - Number(foundItem.price));
-    // if (foundItem.count === 0) {
-    //   removeItem(item);
-    // }
   };
 
   return (
