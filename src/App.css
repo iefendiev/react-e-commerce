@@ -218,7 +218,7 @@ li {
 .detail-image {
   height: 400px;
   width: 450px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 8px;
 }
 
@@ -226,4 +226,5 @@ li {
 .detail-price {
   font-size: 1.8rem;
   margin: 20px;
+  color: white;
 }
