@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState('0');
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addCart = (item) => {
     const nameList = cart.map((cartItem) => cartItem.name);
@@ -24,10 +24,16 @@ function App() {
       newCart[foundItemIndex].count += 1;
     }
 
-    calculateTotal(item.price);
+    calculateTotal();
   };
-  const calculateTotal = (price) => {
-    setTotalPrice(Number(totalPrice) + Number(price));
+  const calculateTotal = () => {
+    const cloneCart = [...cart];
+    let priceTotal = cloneCart.map((item) => item.price * item.count);
+    priceTotal = priceTotal.reduce(function (acc, val) {
+      return acc + val;
+    }, 0);
+    console.log(priceTotal);
+    setTotalPrice(priceTotal);
   };
 
   const removeItem = (removedItem) => {
@@ -40,17 +46,25 @@ function App() {
 
   const decreaseCount = (item) => {
     const newCart = [...cart];
-    const foundItemIndex = newCart.findIndex(
-      (value) => value.name === item.name
-    );
-    const foundItem = newCart[foundItemIndex];
-
-    foundItem.count -= 1;
-    setCart([...newCart]);
-    setTotalPrice(Number(totalPrice) - Number(foundItem.price));
-    if (foundItem.count === 0) {
+    item.count -= 1;
+    setCart(...[newCart]);
+    console.log(item);
+    console.log(newCart);
+    if (item.count === 0) {
       removeItem(item);
     }
+    calculateTotal();
+    // const foundItemIndex = newCart.findIndex(
+    //   (value) => value.name === item.name
+    // );
+    // const foundItem = newCart[foundItemIndex];
+
+    // foundItem.count -= 1;
+    // setCart([...newCart]);
+    // setTotalPrice(Number(totalPrice) - Number(foundItem.price));
+    // if (foundItem.count === 0) {
+    //   removeItem(item);
+    // }
   };
 
   return (
