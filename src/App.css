@@ -37,6 +37,9 @@
   }
 }
 
+body {
+  background-color: #333232;
+}
 .header {
   display: flex;
   justify-content: space-around;
@@ -86,6 +89,7 @@
   border: 1px solid black;
   border-radius: 10px;
   margin: 16px;
+  background-color: white;
 }
 
 .item-header {
@@ -162,16 +166,23 @@
 
 li {
   width: 35%;
+  border-bottom: 1px solid white;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .remove-item-button,
 .subtract-count-button,
 .add-count-button {
+  border: none;
   padding: 10px 15px;
+  width: 50px;
   cursor: pointer;
   color: white;
   font-size: 1.3rem;
   border-radius: 4px;
+  margin: 2px;
+  font-weight: 700;
 }
 
 .remove-item-button {
@@ -186,14 +197,14 @@ li {
 
 .total-price {
   display: flex;
-  color: white;
+  color: #333232;
   padding: 30px;
   width: 30%;
-  margin: 50px auto;
+  margin: 20px auto;
   border-radius: 8px;
   font-size: 1.8rem;
   font-weight: 700;
-  background-color: rgb(39, 38, 38);
+  background-color: white;
   justify-content: center;
 }
 
