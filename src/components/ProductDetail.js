@@ -5,21 +5,20 @@ const ProductDetail = () => {
   const [product, setProduct] = useState();
   const { itemID } = useParams();
 
-  const fetchProduct = async () => {
-    const res = await fetch(
-      `https://60bbe1dc3a39900017b2e099.mockapi.io/shopping/api/v1/products/${itemID}`,
-      {
-        method: 'GET',
-      }
-    );
-    const data = await res.json();
-    console.log(data);
-    setProduct(data);
-  };
-
   useEffect(() => {
+    const fetchProduct = async () => {
+      const res = await fetch(
+        `https://60bbe1dc3a39900017b2e099.mockapi.io/shopping/api/v1/products/${itemID}`,
+        {
+          method: 'GET',
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+      setProduct(data);
+    };
     fetchProduct(itemID);
-  }, []);
+  }, [itemID]);
 
   return (
     <div className="product-detail">
@@ -29,11 +28,7 @@ const ProductDetail = () => {
       <div className="detail-price">
         Product Price: <span style={{ fontWeight: 700 }}>{product?.price}</span>
       </div>
-      <img
-        className="detail-image"
-        alt="product-photo"
-        src={product?.image}
-      ></img>
+      <img className="detail-image" alt="product" src={product?.image}></img>
     </div>
   );
 };
